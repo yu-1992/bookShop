@@ -31,8 +31,6 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 
 	private List<String> itemPrices;
 
-	private List<Integer> totalPrices;
-
 
 	/**
 	 * 商品情報取得メソッド
@@ -64,6 +62,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 				 */
 				int buyItemId=list.get(i).getId();
 				session.put("itemId",buyItemId);
+				buyItemDTO.setId(list.get(i).getId());
 				System.out.println(buyItemId);
 
 				/**
@@ -101,11 +100,10 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 
 
 				int intCount=count.get(i);
-				int intPrice=Integer.parseInt(itemPrices.get(i));//(list.get(i).getItemPrice());
+				int intPrice=Integer.parseInt(list.get(i).getItemPrice());
 
 				/**
-				 * i番目の値をbuyItemDTOの変数に保存。
-				 * buyItemDTOをbuyItemDTOListに追加。
+				 * 合計金額("total_price")をセッションに保存。
 				 */
 				//buyItemDTO.setId((int) session.get("id"));
 				buyItemDTO.setItemName(itemNames.get(i));
@@ -223,18 +221,6 @@ public List<Integer> getCount() {
 
 public void setCount(List<Integer> count) {
 	this.count = count;
-}
-
-
-
-public List<Integer> getTotalPrices() {
-	return totalPrices;
-}
-
-
-
-public void setTotalPrices(List<Integer> totalPrices) {
-	this.totalPrices = totalPrices;
 }
 
 

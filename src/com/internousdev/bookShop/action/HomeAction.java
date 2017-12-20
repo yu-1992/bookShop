@@ -22,7 +22,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute(){
 		String result="login";
-		if(session.containsKey("id")){
+		if(session.containsKey("login_id")){
 			//アイテム情報を取得
 
 

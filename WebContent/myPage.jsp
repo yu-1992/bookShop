@@ -34,8 +34,9 @@
 			<tr>
 				<td><s:property value="itemName"/></td>
 				<td><s:property value="itemAuthor"/></td>
-				<td><s:property value="totalPrice"/></td>
+				<td><s:property value="itemImg"/></td>
 				<td><s:property value="totalCount"/></td>
+				<td><s:property value="totalPrice"/></td>
 				<td><s:property value="payment"/></td>
 				<td><s:property value="insert_date"/></td>
 			</tr>

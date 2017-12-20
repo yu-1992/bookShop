@@ -115,6 +115,7 @@ float:left
 			</table>
 		</div>
 		<div id="footer">
+		<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
 
 		</div>
 
