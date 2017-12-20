@@ -40,7 +40,7 @@ drop table if exists user_buy_item_transaction;
 
 create table user_buy_item_transaction(
 id int not null primary key auto_increment,
-item_transacton_id int,
+item_transaction_id int,
 total_price int,
 total_count int,
 user_master_id varchar(16),
@@ -49,8 +49,22 @@ insert_date datetime,
 delete_date datetime
 );
 
+-- 著者情報
+
+drop table if exists author_info_transaction;
+
+create table author_info_transaction(
+id int not null primary key auto_increment,
+author_name varchar(30),
+author_year varchar(20),
+author_biography varchar(100)
+);
+
+
+
 
 -- insert文
+
 
 
 -- 商品情報
@@ -72,10 +86,23 @@ values("小さき者へ","./img/tisakimonohe01.jpg","有島武朗","「新潮」
 		("風立ちぬ","./img/kazetatinu01.jpg","堀辰雄","序曲、風立ちぬ「改造」1936（昭和11）年12月号",320,22);
 
 
+
+
 -- ログイン登録情報（テストユーザー）
 
 insert into login_user_transaction(login_id,login_pass,user_name,user_mail)
 values("yu","1234","hashimoto yu","yu@1234.com");
+
+
+-- 著者情報
+insert into author_info_transaction(author_name,author_year,author_biography)
+values("有島武朗","年など","有島武朗の略歴"),
+		("泉鏡花","年など","泉鏡花の略歴"),
+		("梶井基次郎","年など","梶井基次郎の略歴"),
+		("太宰治","年など","太宰治の略歴"),
+		("谷崎潤一郎","年など","谷崎潤一郎の略歴"),
+		("夏目漱石","年など","夏目漱石の略歴"),
+		("堀辰雄","年など","堀辰雄の略歴");
 
 
 

@@ -12,6 +12,12 @@ img{
 width: 100px;
 hight: 150px;
 }
+.right{
+float:right
+}
+.left{
+float:left
+}
 </style>
 </head>
 <body>
@@ -23,7 +29,7 @@ hight: 150px;
 			<p>BuyItem</p>
 		</div>
 	</div>
-	<div>
+	<div class="right">
 	<s:form action="BuyItemAction">
 		<table>
 		<s:iterator value="buyItemDTOList">
@@ -95,9 +101,22 @@ hight: 150px;
 				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 			</div>
+		</div>
+		<div class="left">
+			<table>
+			<tr>
+			<td>著者</td>
+			</tr>
+			<s:iterator value="buyItemDTOList">
+			<tr>
+			<td><s:property value="itemAuthor"/><br></td>
+			</tr>
+			</s:iterator>
+			</table>
+		</div>
 		<div id="footer">
 
 		</div>
-	</div>
+
 </body>
 </html>
