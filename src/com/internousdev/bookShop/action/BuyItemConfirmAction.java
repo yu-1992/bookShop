@@ -19,7 +19,7 @@ public class BuyItemConfirmAction {
 	 */
 	public String exucute() throws SQLException{
 
-		buyItemCompleteDAO.buyItemInfo(
+		buyItemCompleteDAO.buyItemInfo()
 
 
 	}
