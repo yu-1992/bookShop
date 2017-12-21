@@ -24,8 +24,8 @@ public class AuthorDAO {
 	 * 著者情報取得メソッド
 	 * @return
 	 */
-	private List<AuthorDTO> getAuthorInfo(){
-		String sql="select id,author_name,author_year,author_biography";
+	public List<AuthorDTO> getAuthorInfo() {
+		String sql="select id,author_name,author_year,author_biography from author_info_transaction";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
@@ -44,14 +44,52 @@ public class AuthorDAO {
 				authorDTO.setAuthorBiography(rs.getString("author_biography"));
 				authorDTOList.add(authorDTO);
 
-				System.out.println(authorDTO.getId());
-			}
+				System.out.println(authorDTO.getAuthorName());
 
+
+			}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return authorDTOList;
 
 		}
-		authorDTO.setId(rs.getInt("id"));
 
+	/**
+	 * 著者詳細情報取得メソッド
+	 * @return
+	 */
+	public AuthorDTO getAuthorInfoDetail(String author_name){
+
+	String sql="select * from author_info_transaction where author_name=?";
+
+	try{
+		PreparedStatement ps=con.prepareStatement(sql);
+		ps.setString(1,author_name);
+
+		ResultSet rs=ps.executeQuery();
+
+		AuthorDTO authorDTO=new AuthorDTO();
+
+		while(rs.next()){
+
+			authorDTO=new AuthorDTO();
+
+			authorDTO.setId(rs.getInt("id"));
+			authorDTO.setAuthorName(rs.getString("author_name"));
+			authorDTO.setAuthorYear(rs.getString("author_year"));
+			authorDTO.setAuthorBiography(rs.getString("author_biography"));;
+
+			System.out.println(authorDTO.getAuthorName());
 	}
+	}catch(Exception e){
+		e.printStackTrace();;
+	}
+	return authorDTO;
+}
+
+
+
 
 
 	public AuthorDTO getAuthorDTO() {

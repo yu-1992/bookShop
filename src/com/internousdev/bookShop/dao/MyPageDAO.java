@@ -52,14 +52,13 @@ public class MyPageDAO {
 	/**
 	 * 商品履歴削除
 	 */
-	public int buyItemHistoryDelete(String item_transaction_id,String user_master_id) throws SQLException{
+	public int buyItemHistoryDelete(String user_master_id) throws SQLException{
 
 		String sql="delete from user_buy_item_transaction where user_master_id=?";
 		int result=0;
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setString(1, item_transaction_id);
-			ps.setString(2, user_master_id);
+			ps.setString(1, user_master_id);
 
 			//削除された数が返る
 			result=ps.executeUpdate();

@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>MyPage画面</title>
+<style>
+img{
+width: 100px;
+hight: 150px;
+}
+</style>
 </head>
 <body>
 	<div id="header">
@@ -25,8 +31,9 @@
 		<tr>
 			<th>商品名</th>
 			<th>著者</th>
-			<th>値段</th>
+			<th>商品イメージ</th>
 			<th>購入個数</th>
+			<th>合計金額</th>
 			<th>支払い方法</th>
 			<th>購入日</th>
 		</tr>
@@ -34,7 +41,7 @@
 			<tr>
 				<td><s:property value="itemName"/></td>
 				<td><s:property value="itemAuthor"/></td>
-				<td><s:property value="itemImg"/></td>
+				<td><img src=<s:property value="itemImg" /> alt="表紙画像">
 				<td><s:property value="totalCount"/></td>
 				<td><s:property value="totalPrice"/></td>
 				<td><s:property value="payment"/></td>

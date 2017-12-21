@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.bookShop.dao.AuthorDAO;
 import com.internousdev.bookShop.dao.BuyItemDAO;
 import com.internousdev.bookShop.dao.LoginDAO;
+import com.internousdev.bookShop.dto.AuthorDTO;
 import com.internousdev.bookShop.dto.BuyItemDTO;
 import com.internousdev.bookShop.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -44,6 +46,17 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private List<BuyItemDTO> buyItemDTOList=new ArrayList<BuyItemDTO>();
 
 
+	//著者情報格納DTO
+	private AuthorDTO authorDTO=new AuthorDTO();
+
+
+	//著者情報を取得
+	private AuthorDAO authorDAO=new AuthorDAO();
+
+	//AuthorDTOリストに著者情報を格納
+	private List<AuthorDTO> authorDTOList=new ArrayList<AuthorDTO>();
+
+
 
 
 
@@ -70,6 +83,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			//session.put("buyItem_price",buyItemDTO.getItemPrice());
 			session.put("buyItemDTOList",buyItemDTOList);
 			System.out.println(buyItemDTOList.get(0).getItemName());
+
+		//著者情報を取得
+			authorDTOList=authorDAO.getAuthorInfo();
+			//session.put("authorId",authorDTO.getId());
+			session.put("authorDTOList",authorDTOList);
+			System.out.println(authorDTOList.get(0).getAuthorName());
+
 
 			return result;
 		}
@@ -143,6 +163,38 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public void setBuyItemDTOList(List<BuyItemDTO> buyItemDTOList) {
 		this.buyItemDTOList = buyItemDTOList;
+	}
+
+
+
+
+	public List<AuthorDTO> getAuthorDTOList() {
+		return authorDTOList;
+	}
+
+
+	public void setAuthorDTOList(List<AuthorDTO> authorDTOList) {
+		this.authorDTOList = authorDTOList;
+	}
+
+
+	public AuthorDAO getAuthorDAO() {
+		return authorDAO;
+	}
+
+
+	public void setAuthorDAO(AuthorDAO authorDAO) {
+		this.authorDAO = authorDAO;
+	}
+
+
+	public AuthorDTO getAuthorDTO() {
+		return authorDTO;
+	}
+
+
+	public void setAuthorDTO(AuthorDTO authorDTO) {
+		this.authorDTO = authorDTO;
 	}
 
 

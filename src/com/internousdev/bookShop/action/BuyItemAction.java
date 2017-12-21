@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware{
 
-	//商品情報
+	//購入商品情報
 	private List<BuyItemDTO> buyItemDTOList=new ArrayList<>();
 
 	//アイテム購入個数

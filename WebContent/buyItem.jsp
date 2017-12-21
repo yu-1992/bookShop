@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -102,15 +102,17 @@ float:left
 				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 			</div>
 		</div>
+
+
 		<div class="left">
-			<table>
+
+		<table>
 			<tr>
-			<td>著者</td>
+			<th>著者</th>
 			</tr>
-			<s:iterator value="buyItemDTOList">
+		<s:iterator value="authorDTOList">
 			<tr>
-			<td><s:property value="itemAuthor"/><br></td>
-			</tr>
+				<td><a href='AuthorItemAction?authorName=<s:property value="authorName"/>'><s:property value="authorName"/></a></td>
 			</s:iterator>
 			</table>
 		</div>

@@ -77,7 +77,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 		/*
 		 * イテレータの取得
-		 *もしMyPageDTOListが殻なら
+		 *もしMyPageDTOListが空なら
 		 *myPageList=null
 		 *myPage.jspで記述の、ご購入情報はありません。が表示
 		 *
@@ -99,10 +99,9 @@ public class MyPageAction extends ActionSupport implements SessionAware{
  * 商品履歴削除メソッド
  */
 	public void delete() throws SQLException{
-		String item_transaction_id=session.get("id").toString();
 		String user_master_id=session.get("login_id").toString();
 
-		int res=myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
+		int res=myPageDAO.buyItemHistoryDelete(user_master_id);
 
 		//削除された数が1以上なら削除成功
 		if(res>0){
