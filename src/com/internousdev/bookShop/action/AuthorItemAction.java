@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.bookShop.dao.AuthorDAO;
-import com.internousdev.bookShop.dto.AuthorDTO;
+import com.internousdev.bookShop.dto.AuthorItemDTO;
 import com.internousdev.bookShop.dto.BuyItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,14 +26,11 @@ public class AuthorItemAction extends ActionSupport implements SessionAware{
 	private List<BuyItemDTO> buyItemDTOList=new ArrayList<>();
 
 	//著者情報取得DTO
-	private AuthorDTO authorDTO=new AuthorDTO();
+	private AuthorItemDTO authorItemDTO=new AuthorItemDTO();
 
 	private AuthorDAO authorDAO=new AuthorDAO();
 
-
-
-
-
+	private List<AuthorItemDTO> authorItemDTOList=new ArrayList<>();
 	/**
 	 * 著者情報・著者商品情報取得メソッド
 	 */
@@ -46,17 +43,13 @@ public class AuthorItemAction extends ActionSupport implements SessionAware{
 		return ERROR;
 	}
 
-
 		//著者情報を取得
-		authorDTO=authorDAO.getAuthorInfoDetail(authorName);
+		System.out.println(authorName);
+		authorItemDTOList=authorDAO.getAuthorInfoDetail(authorName);
+
 		return result;
 
-
 	}
-
-
-
-
 
 	public String getAuthorName() {
 		return authorName;
@@ -118,20 +111,31 @@ public class AuthorItemAction extends ActionSupport implements SessionAware{
 		this.buyItemDTOList = buyItemDTOList;
 	}
 
+	public AuthorItemDTO getAuthorItemDTO() {
+		return authorItemDTO;
+	}
 
+	public void setAuthorItemDTO(AuthorItemDTO authorItemDTO) {
+		this.authorItemDTO = authorItemDTO;
+	}
 
+	public AuthorDAO getAuthorDAO() {
+		return authorDAO;
+	}
 
+	public void setAuthorDAO(AuthorDAO authorDAO) {
+		this.authorDAO = authorDAO;
+	}
 
-	public AuthorDTO getAuthorDTO() {
-		return authorDTO;
+	public List<AuthorItemDTO> getAuthorItemDTOList() {
+		return authorItemDTOList;
+	}
+
+	public void setAuthorItemDTOList(List<AuthorItemDTO> authorItemDTOList) {
+		this.authorItemDTOList = authorItemDTOList;
 	}
 
 
 
-
-
-	public void setAuthorDTO(AuthorDTO authorDTO) {
-		this.authorDTO = authorDTO;
-	}
 
 }

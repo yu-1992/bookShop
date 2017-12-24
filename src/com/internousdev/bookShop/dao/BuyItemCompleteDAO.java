@@ -15,8 +15,6 @@ public class BuyItemCompleteDAO {
 
 	private DateUtil dateUtil=new DateUtil();
 
-	//private List<BuyItemDTO> buyItemDTOList;
-
 	private String sql="insert into user_buy_item_transaction(item_transaction_id,total_price,total_count,item_author,item_img,user_master_id,pay,insert_date) values(?,?,?,?,?,?,?,?)";
 
 

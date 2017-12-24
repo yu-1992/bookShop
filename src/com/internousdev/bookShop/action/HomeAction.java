@@ -6,15 +6,22 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.bookShop.dao.AuthorDAO;
 import com.internousdev.bookShop.dao.BuyItemDAO;
+import com.internousdev.bookShop.dto.AuthorItemDTO;
 import com.internousdev.bookShop.dto.BuyItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HomeAction extends ActionSupport implements SessionAware{
 
+	//ログイン情報格納
 	private Map<String,Object>session;
 
+	//商品情報格納
 	private List<BuyItemDTO> buyItemDTOList=new ArrayList<BuyItemDTO>();
+
+	//著者情報格納
+	private List<AuthorItemDTO> authorItemDTOList=new ArrayList<>();
 
 	/**
 	 * ログインボタン押下時に実行
@@ -23,27 +30,19 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	public String execute(){
 		String result="login";
 		if(session.containsKey("login_id")){
+
 			//アイテム情報を取得
-
-
 			BuyItemDAO buyItemDAO=new BuyItemDAO();
 			buyItemDTOList=buyItemDAO.getBuyItemInfo();
-			/*
-			 * session.put("id", buyItemDTO.getId());
-			session.put("buyItem_name",buyItemDTO.getItemName());
-			session.put("buyItem_author",buyItemDTO.getItemAuthor());
-			session.put("buyItem_price",buyItemDTO.getItemPrice());
-			*/
-//			session.put("buyItemDTOList",buyItemDTO);
 
-			//System.out.println();
+			//著者情報を取得
+			AuthorDAO authorDAO=new AuthorDAO();
+			authorItemDTOList=authorDAO.getAuthorInfo();
 
 			result=SUCCESS;
 		}
 		return result;
 	}
-
-
 
 
 	public List<BuyItemDTO> getBuyItemDTOList() {
@@ -64,4 +63,12 @@ public class HomeAction extends ActionSupport implements SessionAware{
 	}
 
 
+	public List<AuthorItemDTO> getAuthorItemDTOList() {
+		return authorItemDTOList;
+	}
+
+
+	public void setAuthorItemDTOList(List<AuthorItemDTO> authorItemDTOList) {
+		this.authorItemDTOList = authorItemDTOList;
+	}
 }

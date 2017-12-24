@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>BuyItem画面</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <style>
 img{
 width: 100px;
@@ -20,10 +22,9 @@ float:left
 }
 </style>
 </head>
-<body>
-	<div id="header">
-
-	</div>
+<header class="header">
+	<%@ include file="header.jsp" %>
+</header>
 	<div id="main">
 		<div id="top">
 			<p>BuyItem</p>
@@ -34,6 +35,9 @@ float:left
 		<table>
 		<s:iterator value="buyItemDTOList">
 			<tr>
+				<td>
+				<!-- ID -->
+			<td><input type="hidden" name="ids" value="<s:property value="id"/>"/></td>
 				<td>
 					<span>商品名</span>
 				</td>
@@ -68,7 +72,7 @@ float:left
 					<span>購入個数</span>
 				</td>
 				<td>
-					<select name="count" >
+					<select name="counts" >
 						<option value="0" selected="selected">0</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -110,7 +114,7 @@ float:left
 			<tr>
 			<th>著者</th>
 			</tr>
-		<s:iterator value="authorDTOList">
+		<s:iterator value="authorItemDTOList">
 			<tr>
 				<td><a href='AuthorItemAction?authorName=<s:property value="authorName"/>'><s:property value="authorName"/></a></td>
 			</s:iterator>

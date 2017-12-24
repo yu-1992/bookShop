@@ -55,25 +55,12 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 	//商品履歴を削除しない場合
 	if(deleteFlg==null){
-
-		//buyItemDTOList=(ArrayList<BuyItemDTO>) session.get("list");
-		//System.out.println("MyPageActionてすと"+buyItemDTOList.size());
-
-		//選択個数文回す
-		//for(int i=0; i<buyItemDTOList.size();i++){
-			//MyPageDTO myPageDTO=new MyPageDTO();
-
-		//System.out.println("MyPageAction商品ID"+session.get("itemId"));
-		System.out.println("MyPageActionログインID"+session.get("login_id").toString());
-		//String item_transaction_id=list.get(i).getId()
+		/*
+		 * ログインIDをセッションから取得し、
+		 * 取得したIDを使って商品履歴取得メソッドを起動
+		 */
 		String user_master_id=session.get("login_id").toString();
-
-	//マイページリストが空！！！？？？？
 		myPageList=myPageDAO.getMyPageUserInfo(user_master_id);
-		//myPageDTO.setId(id);
-		System.out.println("MyPageActionのテスト");
-		System.out.println(myPageList);
-
 
 		/*
 		 * イテレータの取得

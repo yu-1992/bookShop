@@ -1,0 +1,142 @@
+@CHARSET "UTF-8";
+
+/* ----------------------------
+*	base
+*-------------------------- */
+html{
+	font-size: 62.5%;
+}
+
+body{
+	color: #333;
+	font-size: 1.2rem;
+	font-family: "Hiragino Kaku Gothic ProN" Meiryo, sans-serif;
+}
+
+*, *::before, *::after{
+	box-sizing: border-box;
+}
+
+a:hover{
+	color: #992600;
+	text-decoration: none;
+}
+a:link,a:visited,a:link{
+    color: #333;
+    text-decoration: none;
+}
+
+/* ----------------------------
+*	parts
+*-------------------------- */
+.clearfix::after{
+	content:"";
+	display: block;
+	clear: both;
+}
+
+.hidden{
+	display: none;
+}
+
+/* ----------------------------
+*	header
+*-------------------------- */
+.header{
+	width: 100%;
+	padding: 10px 30px 10px 40px;
+    border-bottom: 1px solid #333;
+}
+
+.logo .image{
+	float: left;
+    width: 244px;
+    height: 92px;
+
+}
+.global-nav{
+    float: right;
+    margin-top: 50px;
+}
+.global-nav .nav-item{
+    display: inline-block;
+    margin: 0 20px;
+}
+.global-nav .nav-item a{
+    display: inline-block;
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+
+}
+
+
+
+
+/* ----------------------------
+*	wrapper
+*-------------------------- */
+.wrapper{
+	width: 970px;
+	margin:30px auto;
+}
+
+
+/* ----------------------------
+*	main
+*-------------------------- */
+.main{
+	display: block;
+	float: right;
+	width: 660px;
+}
+.button{
+    margin:200px 0px;
+    text-align: center;
+    width: 920px
+}
+.button a{
+    display:inline-block;
+    padding:40px 60px;
+   border-radius: 4px;
+    font-size: 1.6rem;
+    letter-spacing: 1.3px;
+}
+.button a:hover{
+    border: 1px solid;
+}
+
+/* login.jsp -userCreate.jsp　*/
+
+table {
+	margin:30px auto;
+		}
+.text-link a{
+	text-decoration: underline;
+}
+.center{
+	margin: 100px auto;
+}
+.login{
+	text-align: center;
+}
+.confirm-table{
+	text-align: cener;
+}
+/* ----------------------------
+*	sidemenu
+*-------------------------- */
+
+.sidemenu{
+	float: fight;
+	width: 275px
+}
+
+/* ----------------------------
+*	footer
+*-------------------------- */
+.footer{
+	width: 100%
+}

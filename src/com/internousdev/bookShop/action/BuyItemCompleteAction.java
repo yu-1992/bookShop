@@ -11,9 +11,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 	private Map<String,Object> session;
 
-	/**
-	 * 商品購入情報登録メソッド
-	 */
+
 	public String execute(){
 		String result=SUCCESS;
 		return result;

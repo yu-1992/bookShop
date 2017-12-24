@@ -17,8 +17,10 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	// 購入情報を格納
 	private Map<String,Object> session;
 
+	//選択商品情報を格納
 	private List<BuyItemDTO> buyItemDTOList=new ArrayList<>();
 
+	//商品購入情報を登録
 	private BuyItemCompleteDAO buyItemCompleteDAO=new BuyItemCompleteDAO();
 
 	private List<String>itemNames;
@@ -29,8 +31,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 
 	private List<Integer>count;
 
-	private List<Integer>totalPrices;
-
+	private int totalPrice;
 	/**
 	 * 商品購入情報登録メソッド
 	 *
@@ -39,40 +40,26 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException{
 
+
+		//選択した商品情報を取得
 		buyItemDTOList=(ArrayList<BuyItemDTO>) session.get("list");
-		System.out.println(buyItemDTOList.size());
 
-
+		//選択した数だけfor文で回す
 		for(int i=0; i<buyItemDTOList.size(); i++){
 
-
-		/**
-		 * i番目のID名をbuyItemDTOListから取得
-		 * String型に変換
-		 */
+		//i番目のID名をbuyItemDTOListから取得String型に変換
 		int id=buyItemDTOList.get(i).getId();
 		String intId=Integer.toString(id);
 
-		/**
-		 * i番目の商品名
-		 * hiddenで飛ばした値を受け取る
-		 */
-		String itemName=itemNames.get(i);
+		int totalPrice=buyItemDTOList.get(i).getTotalPrice();
+		String intTotalPrice=Integer.toString(totalPrice);
 
-		/**
-		 * i番目のトータルプライスを
-		 * buyItemConfirm.jspからhiddenで飛ばした値
-		 * を受け取りString型に
-		 */
-		String totalPrice=String.valueOf(totalPrices.get(i));
-
-		//i番目の個数をbuyItemDTOListから取得
-		//String型に変換
+		//i番目の個数をbuyItemDTOListから取得、String型に変換
 		int count=buyItemDTOList.get(i).getCount();
 		String intCount=Integer.toString(count);
 
 		//i番目の著者
-		String itemAuthor=itemAuthors.get(i);
+		String itemAuthor=buyItemDTOList.get(i).getItemAuthor();
 
 		//ログインIDをセッションから受け取る
 		String userId=session.get("login_id").toString();
@@ -81,23 +68,13 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 		String pay=session.get("pay").toString();
 		//String pay=buyItemDTOList.get(i).getPay();
 
-		//i番目の表紙画像をbuyItemConfirm.jspから受け取る
-		String itemImg=itemImgs.get(i);
-
-
-		System.out.println("BuyItemComfirmActionのテスト！！");
-		System.out.println(intId);
-		System.out.println(itemName);
-		System.out.println(totalPrice);
-		System.out.println(intCount);
-		System.out.println(itemAuthor);
-		System.out.println(userId);
-		System.out.println(pay);
-		System.out.println(itemImg);
+		//i番目の表紙画像
+		String itemImg=buyItemDTOList.get(i).getItemImg();
 
 		BuyItemCompleteDAO buyItemCompleteDAO=new BuyItemCompleteDAO();
 
-		buyItemCompleteDAO.buyItemInfo(intId, totalPrice, intCount, itemAuthor,itemImg, userId, pay);
+		//購入商品登録メソッドを呼び出す
+		buyItemCompleteDAO.buyItemInfo(intId, intTotalPrice, intCount, itemAuthor,itemImg, userId, pay);
 
 		}
 
@@ -123,11 +100,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	public void setBuyItemCompleteDAO(BuyItemCompleteDAO buyItemCompleteDAO) {
 		this.buyItemCompleteDAO = buyItemCompleteDAO;
 	}
-
-
-
-
-
 
 
 	public List<String> getItemNames() {
@@ -170,16 +142,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	}
 
 
-	public List<Integer> getTotalPrices() {
-		return totalPrices;
-	}
-
-
-	public void setTotalPrices(List<Integer> totalPrices) {
-		this.totalPrices = totalPrices;
-	}
-
-
 	public List<BuyItemDTO> getBuyItemDTOList() {
 		return buyItemDTOList;
 	}
@@ -190,7 +152,14 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	}
 
 
+	public int getTotalPrice() {
+		return totalPrice;
+	}
 
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 
 }

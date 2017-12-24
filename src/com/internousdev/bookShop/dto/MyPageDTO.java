@@ -1,25 +1,37 @@
 package com.internousdev.bookShop.dto;
 
+/**
+ * マイページ情報一覧
+ * @author yuu
+ *
+ */
 public class MyPageDTO {
 
+	//商品名
 	private String itemName;
 
+	//著者
 	private String itemAuthor;
 
+	//合計金額
 	private String totalPrice;
 
+	//合計金額
 	private String totalCount;
 
+	//支払い方法
 	private String payment;
 
+	//ユーザー名
 	private String userName;
 
+	//商品イメージ
 	private String itemImg;
 
+	//商品ID
 	private String id;
 
-
-
+	//商品購入日
 	public String insert_date;
 
 
@@ -82,9 +94,6 @@ public class MyPageDTO {
 	public String getInsert_date() {
 		return insert_date;
 	}
-
-
-
 	public void setInsert_date(String insert_date) {
 		this.insert_date = insert_date;
 	}

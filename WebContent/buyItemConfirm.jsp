@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <title>BuyItemConfirm画面</title>
 <style>
 img{
@@ -14,18 +16,13 @@ hight: 150px;
 }
 </style>
 
-<script type="text/javascript">
-		function submitAction(url) {
-			$('form').attr('action', url);
-			$('form').submit();
-		}
-</script>
+
 
 </head>
 <body>
-	<div id="header">
-
-	</div>
+<header class="header">
+	<%@ include file="header.jsp" %>
+</header>
 	<div id="main">
 		<div id="top">
 			<p>BuyItemConfirm</p>
@@ -36,16 +33,16 @@ hight: 150px;
 					<tr>
 						<td>商品名</td>
 						<td><s:property value="itemName"/></td>
-						<td><input type="hidden" name="itemNames" value="<s:property value="itemName"/>" /></td>
+						<td>
 					</tr>
 					<tr>
 						<td><img src=<s:property value="itemImg" /> alt="表紙画像">
-						<td><input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/></td>
+
 					</tr>
 					<tr>
 						<td>著者</td>
 						<td><s:property value="itemAuthor"/></td>
-						<td><input type="hidden" name="itemAuthors" value="<s:property value="itemAuthor"/>" /></td>
+
 					</tr>
 					<tr>
 						<td>購入個数</td>
@@ -54,12 +51,10 @@ hight: 150px;
 					<tr>
 						<td>値段</td>
 						<td><s:property value="totalPrice"/></td>
-						<td><input type="hidden" name="totalPrices" value="<s:property value="totalPrice"/>"/></td>
+
 					</tr>
-
-
-
 				</s:iterator>
+
 					<tr>
 						<td>支払い方法</td>
 						<td><s:property value="session.pay"/></td>
@@ -74,6 +69,12 @@ hight: 150px;
 	<div id="footer">
 
 	</div>
+	<script>
+		function submitAction(url) {
+			$('form').attr('action', url);
+			$('form').submit();
+		}
+</script>
 
 </body>
 </html>

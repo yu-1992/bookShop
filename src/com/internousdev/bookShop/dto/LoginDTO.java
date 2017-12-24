@@ -1,16 +1,28 @@
 package com.internousdev.bookShop.dto;
 
+/**
+ * ログイン情報一覧
+ * @author yuu
+ *
+ */
+
 public class LoginDTO {
 
+	//ID
 	private String loginId;
 
+	//パスワード
 	private String loginPass;
 
+	//ユーザー名
 	private String userName;
 
+	//ユーザーメール
 	private String userMail;
 
+	//ログインフラグ
 	private boolean loginFlg=false;
+
 
 	public String getLoginId() {
 		return loginId;

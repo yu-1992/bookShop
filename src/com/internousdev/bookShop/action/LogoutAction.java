@@ -8,11 +8,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class LogoutAction extends ActionSupport implements SessionAware {
 
-	/**
-	 * Session情報
-	 */
+	// ログイン情報格納
 	public Map<String, Object> session;
 
+	/**
+	 * ログイン情報セッションの削除メソッド
+	 */
 	public String execute() {
 
 		String result = SUCCESS;

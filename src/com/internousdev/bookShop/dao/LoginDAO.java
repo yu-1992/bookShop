@@ -10,7 +10,9 @@ import com.internousdev.bookShop.util.DBConnector;
 public class LoginDAO {
 
 	private DBConnector db=new DBConnector();
+
 	private Connection con=db.getConnection();
+
 	private LoginDTO loginDTO=new LoginDTO();
 
 	/**

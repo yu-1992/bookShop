@@ -9,19 +9,21 @@ import java.util.List;
 import com.internousdev.bookShop.dto.BuyItemDTO;
 import com.internousdev.bookShop.util.DBConnector;
 
-
 public class BuyItemDAO {
 
 	private DBConnector db=new DBConnector();
 
 	private Connection con=db.getConnection();
 
+	//商品情報一覧
 	private BuyItemDTO buyItemDTO;
 
+	//商品情報を格納
 	private List<BuyItemDTO> buyItemDTOList;
 
 	/**
-	 * 商品情報取得メソッド
+	 * 選択商品情報取得メソッド
+	 * @return
 	 */
 	public List<BuyItemDTO> getBuyItemInfo(){
 
@@ -39,25 +41,18 @@ public class BuyItemDAO {
 
 				buyItemDTO.setId(rs.getInt("id"));
 				buyItemDTO.setItemName(rs.getString("item_name"));
-				buyItemDTO.setItemPrice(rs.getString("item_price"));
+				buyItemDTO.setItemPrice(rs.getInt("item_price"));
 				buyItemDTO.setItemAuthor(rs.getString("item_author"));
 				buyItemDTO.setItemImg(rs.getString("item_img"));
 				buyItemDTOList.add(buyItemDTO);
-
-
-
-				System.out.println(buyItemDTO.getId());
-				System.out.println(buyItemDTO.getItemName());
-				System.out.println(buyItemDTO.getItemPrice());
-				System.out.println(buyItemDTO.getItemAuthor());
-				System.out.println(buyItemDTO.getItemImg());
-
 			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+
 		return buyItemDTOList;
 	}
+
 
 	public BuyItemDTO getBuyItemDTO(){
 		return buyItemDTO;

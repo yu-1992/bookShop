@@ -6,17 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>UserCreateConfirm画面</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-	<div id="header">
-
-	</div>
-	<div id="main">
-		<div id="top">
-			<p>UserCreateConfirm</p>
-		</div>
-		<div>
-			<h3>登録する内容は以下でよろしいですか。</h3>
+<header class="header">
+	<%@ include file="header.jsp" %>
+</header>
+<div class="center">
+	<div class="confirm-table">
 			<table>
 				<s:form action="UserCreateCompleteAction">
 				<tr id="box">
@@ -32,15 +30,16 @@
 					<td><s:property value="userName" escape="false"/></td>
 				</tr>
 				<tr id="box">
-					<td><label>メールアドレス</label></td>
+					<td><label>メールアドレス:</label></td>
 					<td><s:property value="userMail" escape="false"/></td>
 				</tr>
 				<tr>
 					<td><s:submit value="完了"/></td>
 				</s:form>
 			</table>
-		</div>
-		</div>
+
+	</div>
+</div>
 		<div id="footer">
 
 		</div>

@@ -29,7 +29,11 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 
 	private List<String> itemImgs;
 
-	private List<String> itemPrices;
+	private List<Integer> itemPrices;
+
+	private List<Integer> ids;
+
+	private List<Integer> counts;
 
 
 	/**
@@ -37,94 +41,61 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute(){
 		String result=SUCCESS;
-		System.out.println("カウント数："+count.size());
 
-		session.put("count", count);
-		@SuppressWarnings("unchecked")
-		List<BuyItemDTO> list=(List<BuyItemDTO>) session.get("buyItemDTOList");
+		//ログイン状態になければERRORを返してerror.jspを表示
+		if(!session.containsKey("login_id")){
+				return ERROR;
+			}
 
-		//for文でcount.sizeだけ回す。
-		for(int i=0; i<count.size(); i++){
+		//商品一覧情報をセッションから呼び出す
+	//	@SuppressWarnings("unchecked")
+		//List<BuyItemDTO> list=(List<BuyItemDTO>) session.get("buyItemDTOList");
+
+		//for文でcount.size()分だけ回す。
+		for(int i=0; i<counts.size(); i++){
+
+			System.out.println(counts.size());
 			/**
 			 * 購入個数がゼロでなかったなら、
 			 * buyItemDTOに、jspから受け取った値をセットして、
 			 * 合計金額("total_price")をセッションに保存。
 			 */
-			if(count.get(i) > 0) {
-				System.out.println("てすとおおおおおおおおおお："+itemNames.get(i));
-				//BuyItemDTOの初期化
+			if(counts.get(i) > 0) {
 
+				//BuyItemDTOの初期化
 				BuyItemDTO buyItemDTO=new BuyItemDTO();
 
+				//i番目のIDをリストから取得
+				//int Id=ids.get(i);
+				//session.put("itemId",buyItemId);
 
-				/**
-				 * i番目のIDをリストから取得
-				 */
-				int buyItemId=list.get(i).getId();
-				session.put("itemId",buyItemId);
-				buyItemDTO.setId(list.get(i).getId());
-				System.out.println(buyItemId);
+				//i番目の購入個数、金額を取得し、int型に変換
+				//int intCount=count.get(i);
+				//int intPrice=Integer.parseInt(list.get(i).getItemPrice());
 
-				/**
-				 * i番目の商品名を
-				 * hiddenタグで飛ばしたリストitemNamesを取得し、
-				 * セッションに保存
-				 */
-				//String buyItemName=list.get(i).getItemName();
-				String buyItemNames=itemNames.get(i);
-				session.put("itemNames",buyItemNames);
-				System.out.println(buyItemNames);
-
-				/**
-				 * i番目の著者を取得し、セッションに保存
-				 */
-				//String buyItemAuthor=list.get(i).getItemAuthor();
-				//session.put("itemAuthor",buyItemAuthor);
-				String buyItemAuthors=itemAuthors.get(i);
-				session.put("itemAuthors",buyItemAuthors);
-				System.out.println(buyItemAuthors);
-
-				/**
-				 * i番目のイメージを取得し、セッションに保存
-				 */
-				String buyItemImgs=itemImgs.get(i);
-				session.put("itemImgs", buyItemImgs);
-				System.out.println(buyItemImgs);
-
-				/**
-				 *i番目の価格を取得し、セッションに保存
-				 */
-				String buyItemPrices=itemPrices.get(i);
-				session.put("itemPrices",buyItemPrices);
-				System.out.println(buyItemPrices);
-
-
-				int intCount=count.get(i);
-				int intPrice=Integer.parseInt(list.get(i).getItemPrice());
-
-				/**
-				 * 合計金額("total_price")をセッションに保存。
-				 */
-				//buyItemDTO.setId((int) session.get("id"));
+				//i番目の商品情報をDTOにセット
+				buyItemDTO.setId(ids.get(i));
 				buyItemDTO.setItemName(itemNames.get(i));
 				buyItemDTO.setItemAuthor(itemAuthors.get(i));
 				buyItemDTO.setItemImg(itemImgs.get(i));
 				buyItemDTO.setItemPrice(itemPrices.get(i));
-				//buyItemDTO.setItemAuthor(session.get("itemAuthor").toString());
-				//buyItemDTO.setItemPrice(session.get("itemPrice").toString());
-				buyItemDTO.setCount(intCount);
-				buyItemDTO.setTotalPrice(intCount*intPrice);
-
-				session.put("totalPrice",intCount*intPrice);
-
+				buyItemDTO.setCount(counts.get(i));
+				buyItemDTO.setTotalPrice(counts.get(i)*itemPrices.get(i));
+				System.out.println(buyItemDTO.getId());
+				System.out.println(buyItemDTO.getItemName());
+				System.out.println(buyItemDTO.getItemAuthor());
+				System.out.println(buyItemDTO.getItemImg());
+				System.out.println(buyItemDTO.getItemPrice());
+				System.out.println(buyItemDTO.getCount());
+				System.out.println(buyItemDTO.getTotalPrice());
+				//DTOにセットしたi番目の商品情報をbuyItemDTOListに追加
 				buyItemDTOList.add(buyItemDTO);
 			}
-		}
 
 		//buyItemDTOListをセッションに保存。
 		session.put("list",buyItemDTOList);
 
-		//支払い方法を選択し、buyItemDTOListにbuyItemDTOを追加。
+		//支払い方法を選択し、セッションに保存
 		String payment;
 		if(pay.equals("1")){
 			payment="現金払い";
@@ -132,6 +103,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware{
 		}else{
 			payment="クレジットカード";
 			session.put("pay",payment);
+		}
 		}
 		return result;
 	}
@@ -201,18 +173,6 @@ public void setItemImgs(List<String> itemImgs) {
 
 
 
-public List<String> getItemPrices() {
-	return itemPrices;
-}
-
-
-
-public void setItemPrices(List<String> itemPrices) {
-	this.itemPrices = itemPrices;
-}
-
-
-
 public List<Integer> getCount() {
 	return count;
 }
@@ -222,6 +182,44 @@ public List<Integer> getCount() {
 public void setCount(List<Integer> count) {
 	this.count = count;
 }
+
+
+
+public List<Integer> getIds() {
+	return ids;
+}
+
+
+
+public void setIds(List<Integer> ids) {
+	this.ids = ids;
+}
+
+
+
+public List<Integer> getCounts() {
+	return counts;
+}
+
+
+
+public void setCounts(List<Integer> counts) {
+	this.counts = counts;
+}
+
+
+
+public List<Integer> getItemPrices() {
+	return itemPrices;
+}
+
+
+
+public void setItemPrices(List<Integer> itemPrices) {
+	this.itemPrices = itemPrices;
+}
+
+
 
 
 

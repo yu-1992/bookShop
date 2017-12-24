@@ -2,10 +2,18 @@ package com.internousdev.bookShop.dto;
 
 import java.util.List;
 
+/**
+ * 購入商品情報DTO
+ * @author yuu
+ *
+ */
+
 public class BuyItemDTO {
 
 	//商品ID
 	private int id;
+
+	private List<Integer> ids;
 
 	//商品名
 	private String itemName;
@@ -13,9 +21,9 @@ public class BuyItemDTO {
 	private List<String> itemNames;
 
 	//商品価格
-	private String itemPrice;
+	private int itemPrice;
 
-	private List<String> itemPrices;
+	private List<Integer> itemPrices;
 
 	//著者
 	private String itemAuthor;
@@ -30,6 +38,7 @@ public class BuyItemDTO {
 	//購入個数
 	private int count;
 
+	private List<Integer> counts;
 
 	//支払い方法
 	private String pay;
@@ -38,8 +47,6 @@ public class BuyItemDTO {
 	private int totalPrice;
 
 	private List<Integer> totalPrices;
-
-
 
 
 	public int getId() {
@@ -66,13 +73,8 @@ public class BuyItemDTO {
 		this.itemNames = itemNames;
 	}
 
-	public String getItemPrice() {
-		return itemPrice;
-	}
 
-	public void setItemPrice(String itemPrice) {
-		this.itemPrice = itemPrice;
-	}
+
 
 	public String getItemAuthor() {
 		return itemAuthor;
@@ -130,13 +132,7 @@ public class BuyItemDTO {
 		this.itemImgs = itemImgs;
 	}
 
-	public List<String> getItemPrices() {
-		return itemPrices;
-	}
 
-	public void setItemPrices(List<String> itemPrices) {
-		this.itemPrices = itemPrices;
-	}
 
 	public List<Integer> getTotalPrices() {
 		return totalPrices;
@@ -146,6 +142,37 @@ public class BuyItemDTO {
 		this.totalPrices = totalPrices;
 	}
 
+	public List<Integer> getIds() {
+		return ids;
+	}
+
+	public void setIds(List<Integer> ids) {
+		this.ids = ids;
+	}
+
+	public List<Integer> getItemPrices() {
+		return itemPrices;
+	}
+
+	public void setItemPrices(List<Integer> itemPrices) {
+		this.itemPrices = itemPrices;
+	}
+
+	public int getItemPrice() {
+		return itemPrice;
+	}
+
+	public void setItemPrice(int itemPrice) {
+		this.itemPrice = itemPrice;
+	}
+
+	public List<Integer> getCounts() {
+		return counts;
+	}
+
+	public void setCounts(List<Integer> counts) {
+		this.counts = counts;
+	}
 
 
 

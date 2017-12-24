@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>UserCreateComplete画面</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-	<div id="header">
-
-	</div>
+<header class="header">
+	<%@ include file="header.jsp" %>
+</header>
 	<div id="mai">
 		<div id="top">
 		<p>UserCreateComplete</p>

@@ -29,11 +29,6 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		 * 新規ユーザー作成メソッドに、セッションで受け取った
 		 * 各値をセットして実行
 		 */
-		System.out.println(session.get("loginId"));
-		System.out.println(session.get("loginPass"));
-		System.out.println(session.get("userName"));
-		System.out.println(session.get("userMail"));
-
 		userCreateCompleteDAO.createUser(session.get("loginId").toString(),session.get("loginPass").toString(),session.get("userName").toString(),session.get("userMail").toString());
 
 		String result=SUCCESS;
