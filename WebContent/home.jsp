@@ -15,6 +15,7 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
+<div class=wrapper>
 
 <div class="home">
     <div class="button">

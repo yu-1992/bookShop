@@ -79,6 +79,12 @@
 		<result name="error">error.jsp</result>
 	</action>
 
+	<!-- MyAccountAction -->
+	<action name="MyAccountAction" class="com.internousdev.bookShop.action.MyAccountAction" method="execute">
+		<result name="success">myAccount.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
 
 	</package>
 </struts>

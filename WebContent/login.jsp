@@ -13,10 +13,10 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div class="center">
+	<div class="wrapper">
 	<div class="login">
 
-			<h3>商品を購入する際にはログインをお願いします。</h3>
+			<h4>商品を購入する際にはログインをお願いします。</h4>
 			<div class="login-form">
 			<s:form action="LoginAction" onSubmit="return checkForm()">
 				<s:textfield name="loginId" placeholder="ログインID"/>

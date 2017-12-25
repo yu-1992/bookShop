@@ -14,11 +14,12 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-<div class="center">
+<div class="wrapper">
 		<div class="login">
 			<s:if test="errorMessage!=''">
 				<s:property value="errorMessage" escape="false"/>
 			</s:if>
+			<div class="login-form">
 			<table>
 				<s:form action="UserCreateConfirmAction">
 					<tr>
@@ -34,12 +35,13 @@
 						<td><input type="text" name="userName" value="" maxlength="50"/></td>
 					</tr>
 					<tr>
-						<td><label>メールアドレス</label></td>
+						<td><label>メールアドレス:</label></td>
 						<td><input type="email" name="userMail" value="" maxlength="50"/></td>
 					</tr>
 						<s:submit value="登録"/>
 				</s:form>
 			</table>
+		</div>
 			<div class="text-link">
 				<span>前画面に戻る場合は</span><a href='<s:url action="HomeAction"/>'>こちら</a>
 			</div>

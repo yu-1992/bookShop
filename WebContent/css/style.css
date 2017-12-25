@@ -105,11 +105,14 @@ a:link,a:visited,a:link{
     letter-spacing: 1.3px;
 }
 .button a:hover{
-    border: 1px solid;
+    border: 1px solid #999;
 }
 
 /* login.jsp -userCreate.jsp　*/
-
+.login{
+	text-align: center;
+	margin: 130px 0;
+}
 table {
 	margin:30px auto;
 		}
@@ -121,9 +124,23 @@ table {
 }
 .login{
 	text-align: center;
+    margin: 130px auto;
+}
+.login h4{
+	letter-spacing: 1px;
 }
 .confirm-table{
 	text-align: cener;
+}
+.login-form{
+	border:1px solid #999;
+	display: inline-block;
+	margin: 31px;
+	padding: 12px 78px;
+	border-radius: 11px;
+}
+.login-form input{
+	margin:5px;
 }
 /* ----------------------------
 *	sidemenu
