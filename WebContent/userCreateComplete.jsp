@@ -13,16 +13,14 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div id="mai">
-		<div id="top">
-		<p>UserCreateComplete</p>
-		</div>
-		<div><br>
-			<h3>ユーザーの登録が完了しました。</h3>
+	<div class="wrapper">
+		<div class="create-complete">
+		<div class="finish">
 
-			<div>
-				<a href='<s:url action="HomeAction" />'>ログインへ</a>
-			</div>
+
+				<a href='<s:url action="HomeAction" />'>ユーザーの登録が完了しました。<br>ログインへ</a>
+
+		</div>
 		</div>
 	</div>
 	<div id="footer">

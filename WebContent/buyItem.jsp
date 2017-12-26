@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -32,24 +33,25 @@ float:left
 	</div>
 	<div class="right">
 	<s:form action="BuyItemAction">
+	<div class="item-info">
 		<table>
 		<s:iterator value="buyItemDTOList">
+
 			<tr>
 				<td>
 				<!-- ID -->
 			<td><input type="hidden" name="ids" value="<s:property value="id"/>"/></td>
 				<td>
-					<span>商品名</span>
-				</td>
-				<td>
-					<s:property value="itemName"/><br>
+			</tr>
+			<tr>
+				<td><span>商品名</span></td>
+				<td><s:property value="itemName"/><br>
 					<input type="hidden" name="itemNames" value="<s:property value="itemName"/>" />
 				</td>
 			</tr>
 			<!-- 表紙画像-->
 			<tr>
-				<td><img src='<s:property value="itemImg"/>' alt="表紙画像">
-					<input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/>
+				<td><img src='<s:property value="itemImg"/>' alt="表紙画像"><input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/></td>
 			</tr>
 				<td>
 					<span>著者</span>
@@ -105,6 +107,7 @@ float:left
 				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
 				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
 			</div>
+		</div>
 		</div>
 
 

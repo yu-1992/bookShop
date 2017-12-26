@@ -18,13 +18,19 @@ hight: 150px;
 <body>
 	<header class="header">
 	<%@ include file="header.jsp" %>
+	</header>
 	<div class="wrapper">
-		<div class="myAccount">
-			<s:property value="session.get.loginDTO.userName"/>
-
-
-		</div>
-
-
+	 <div class="userAccount">
+	 	<div class="account-logo"><i class="fa fa-key"></i></div>
+	 	<ul class="userAccount-table">
+	 		<li class="id">ログインID:<s:property value="session.login_id"/></li>
+			<li class="name">ユーザー名:<s:property value="session.userName"/></li>
+			<li class="mail">メールアドレス:<s:property value="session.userMail"/></li>
+		</ul>
 	</div>
-</header>
+	<div class="text-link">
+	<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+  	</div>
+   </div>
+</body>
+</html>

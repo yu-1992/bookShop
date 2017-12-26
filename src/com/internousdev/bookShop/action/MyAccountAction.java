@@ -16,13 +16,20 @@ public class MyAccountAction extends ActionSupport implements SessionAware{
 
 
 
+
+
 	public String execute(){
 		String result=SUCCESS;
 
 		if(session.get("login_id")==null){
 			result=ERROR;
 		}
+		else{
+			result=SUCCESS;
+		}
 		return result;
+
+
 
 	}
 

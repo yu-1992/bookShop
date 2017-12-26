@@ -13,23 +13,24 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-<div class="center">
-	<div class="confirm-table">
+<div class="wrapper">
+	<div class="login">
+			<div class="create-form">
 			<table>
 				<s:form action="UserCreateCompleteAction">
-				<tr id="box">
+				<tr class="box">
 					<td><label>ログインID:</label></td>
 					<td><s:property value="loginId" escape="false"/></td>
 				</tr>
-				<tr id="box">
+				<tr class="box">
 					<td><label>ログインPASS:</label></td>
 					<td><s:property value="loginPass" escape="false"/></td>
 				</tr>
-				<tr id="box">
+				<tr class="box">
 					<td><label>ユーザー名:</label></td>
 					<td><s:property value="userName" escape="false"/></td>
 				</tr>
-				<tr id="box">
+				<tr class="box">
 					<td><label>メールアドレス:</label></td>
 					<td><s:property value="userMail" escape="false"/></td>
 				</tr>
@@ -38,6 +39,10 @@
 				</s:form>
 			</table>
 
+	</div>
+	<div class="text-link">
+				<span>前画面に戻る場合は</span><a href='<s:url action="HomeAction"/>'>こちら</a>
+			</div>
 	</div>
 </div>
 		<div id="footer">

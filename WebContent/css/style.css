@@ -25,6 +25,9 @@ a:link,a:visited,a:link{
     color: #333;
     text-decoration: none;
 }
+ul{
+	list-style: none;
+}
 
 /* ----------------------------
 *	parts
@@ -99,7 +102,7 @@ a:link,a:visited,a:link{
 }
 .button a{
     display:inline-block;
-    padding:40px 60px;
+    padding:88px 137px;
    border-radius: 4px;
     font-size: 1.6rem;
     letter-spacing: 1.3px;
@@ -119,9 +122,7 @@ table {
 .text-link a{
 	text-decoration: underline;
 }
-.center{
-	margin: 100px auto;
-}
+
 .login{
 	text-align: center;
     margin: 130px auto;
@@ -137,17 +138,81 @@ table {
 	display: inline-block;
 	margin: 31px;
 	padding: 12px 78px;
-	border-radius: 11px;
+	border-radius: 4px;
 }
 .login-form input{
 	margin:5px;
+}
+
+.create-form{
+border: 1px solid #999;
+    display: inline-block;
+    margin: 31px;
+    padding: 46px 128px;
+}
+.create-complete .finish{
+	margin:200px 0px;
+    text-align: center;
+    width: 920px
+}
+.create-complete .finish a{
+	display:inline-block;
+    padding:60px 120px;
+    border-radius: 4px;
+    letter-spacing: 1.0px;
+    line-height:500%;
+}
+.finish a:hover{
+	border: 1px solid#999;
+}
+.userAccount{
+	position:relative;
+	width: 970px;
+	height: 500px;
+}
+.userAccount-table{
+	display:inline-block;
+	width: 270px;
+	height: 220px;
+	border:1px solid #999;
+	border-radius: 4px;
+	top:0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	margin: auto;
+}
+.id{
+	margin: 65px auto 10px;
+}
+.name{
+	margin: 10px auto;
+}
+.mail{
+	margin-bottom: 40px;
+}
+.account-logo{
+	text-align:center;
+	padding-top:150px;
+	font-size: 15px;
+}
+.text-link {
+	text-align:center;
+}
+img{
+width: 120px;
+hight: 175px;
+}
+.info{
+	float: right:
 }
 /* ----------------------------
 *	sidemenu
 *-------------------------- */
 
 .sidemenu{
-	float: fight;
+	float: left;
 	width: 275px
 }
 

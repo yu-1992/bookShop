@@ -34,10 +34,12 @@ public class HomeAction extends ActionSupport implements SessionAware{
 			//アイテム情報を取得
 			BuyItemDAO buyItemDAO=new BuyItemDAO();
 			buyItemDTOList=buyItemDAO.getBuyItemInfo();
+			session.put("buyItemDTOList",buyItemDTOList);
 
 			//著者情報を取得
 			AuthorDAO authorDAO=new AuthorDAO();
 			authorItemDTOList=authorDAO.getAuthorInfo();
+			session.put("authorItemDTOList", authorItemDTOList);
 
 			result=SUCCESS;
 		}

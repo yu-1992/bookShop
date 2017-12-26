@@ -31,6 +31,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	//ログインパスワード
 	private String loginPass;
 
+	private String userName;
+
+
+
 	//ログイン情報を格納
 	public Map<String,Object> session;
 
@@ -63,6 +67,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 		//ログイン実行
 		loginDTO=loginDAO.getLoginUserInfo(loginId, loginPass);
+		//ユーザー名をセッションに保存
+		session.put("userName", loginDTO.getUserName());
+		session.put("userMail", loginDTO.getUserMail());
+
 
 		//ログイン情報をセッションに保存
 		session.put("loginUser",loginDTO);
@@ -74,7 +82,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		//アイテム情報を取得
 			buyItemDTOList=buyItemDAO.getBuyItemInfo();
 
-		//ID、商品情報をセッションに保存
+		//ユーザーID、商品情報をセッションに保存
 			session.put("login_id",loginDTO.getLoginId());
 			session.put("buyItemDTOList",buyItemDTOList);
 
@@ -188,6 +196,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public void setAuthorItemDTOList(List<AuthorItemDTO> authorItemDTOList) {
 		this.authorItemDTOList = authorItemDTOList;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 
