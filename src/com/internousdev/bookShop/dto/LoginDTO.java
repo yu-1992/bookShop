@@ -8,7 +8,8 @@ package com.internousdev.bookShop.dto;
 
 public class LoginDTO {
 
-	//ID
+	private int id;
+	//ログインID
 	private String loginId;
 
 	//パスワード
@@ -62,6 +63,14 @@ public class LoginDTO {
 
 	public void setLoginFlg(boolean loginFlg) {
 		this.loginFlg = loginFlg;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

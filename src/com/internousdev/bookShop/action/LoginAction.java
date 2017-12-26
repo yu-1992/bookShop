@@ -25,12 +25,16 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LoginAction extends ActionSupport implements SessionAware{
 
+	//ID
+	private int id;
+
 	//ログインID
 	private String loginId;
 
 	//ログインパスワード
 	private String loginPass;
 
+	//ユーザー名
 	private String userName;
 
 
@@ -68,6 +72,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		//ログイン実行
 		loginDTO=loginDAO.getLoginUserInfo(loginId, loginPass);
 		//ユーザー名をセッションに保存
+		session.put("id",loginDTO.getId());
 		session.put("userName", loginDTO.getUserName());
 		session.put("userMail", loginDTO.getUserMail());
 
@@ -206,6 +211,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

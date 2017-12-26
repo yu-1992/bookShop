@@ -46,8 +46,8 @@ ul{
 *	header
 *-------------------------- */
 .header{
-	width: 100%;
-	padding: 10px 30px 10px 40px;
+    width: 100%;
+    padding: 5px 5px 14px 108px;
     border-bottom: 1px solid #333;
 }
 
@@ -204,9 +204,7 @@ img{
 width: 120px;
 hight: 175px;
 }
-.info{
-	float: right:
-}
+
 /* ----------------------------
 *	sidemenu
 *-------------------------- */

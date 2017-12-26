@@ -29,7 +29,7 @@ hight: 150px;
 		</ul>
 	</div>
 	<div class="text-link">
-	<p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
+	<p>Homeへ戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
   	</div>
    </div>
 </body>

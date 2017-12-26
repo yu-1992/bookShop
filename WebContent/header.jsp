@@ -1,6 +1,6 @@
 	<div class="clearfix">
 		<h1 class="logo">
-		<a href='<s:url action="GoHomeAction"/>'>
+		<a href='<s:url action="HomeAction"/>'>
 			<img class="image" src="img/logo.png" alt="大塚書店">
 		</a>
 		</h1>

@@ -15,9 +15,6 @@ img{
 width: 100px;
 hight: 150px;
 }
-.right{
-float:right
-}
 .left{
 float:left
 }
@@ -26,14 +23,13 @@ float:left
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div id="main">
-		<div id="top">
-			<p>BuyItem</p>
-		</div>
-	</div>
-	<div class="right">
+	<div class="wrapper">
+	<div class="clearfix">
+	<div class="main">
+
+<div class="item-info">
 	<s:form action="BuyItemAction">
-	<div class="item-info">
+
 		<table>
 		<s:iterator value="buyItemDTOList">
 
@@ -69,11 +65,15 @@ float:left
 					<input type="hidden" name="itemPrices" value="<s:property value="itemPrice"/>"/>
 				</td>
 			</tr>
+
 			<tr>
 				<td>
+
 					<span>購入個数</span>
 				</td>
 				<td>
+
+
 					<select name="counts" >
 						<option value="0" selected="selected">0</option>
 						<option value="1">1</option>
@@ -87,6 +87,7 @@ float:left
 			</tr>
 
 			</s:iterator>
+
 						<tr>
 				<td>
 					<span>支払い方法</span>
@@ -103,15 +104,12 @@ float:left
 			</tr>
 		</table>
 		</s:form>
-			<div>
-				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction"/>'>こちら</a></p>
-				<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
-			</div>
+
 		</div>
-		</div>
+</div>
 
 
-		<div class="left">
+		<div class="sidemenu">
 
 		<table>
 			<tr>
@@ -123,10 +121,12 @@ float:left
 			</s:iterator>
 			</table>
 		</div>
-		<div id="footer">
-		<a href='<s:url action="LogoutAction"/>'>ログアウト</a>
-
-		</div>
+			</div>
+			</div>
+	<div class="text-link">
+	<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
+				<p>前画面に戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
+			</div>
 
 </body>
 </html>

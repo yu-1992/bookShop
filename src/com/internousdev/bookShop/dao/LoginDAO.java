@@ -31,6 +31,7 @@ public class LoginDAO {
 			ResultSet rs=ps.executeQuery();
 
 			if(rs.next()){
+				loginDTO.setId(rs.getInt("id"));
 				loginDTO.setLoginId(rs.getString("login_id"));
 				loginDTO.setLoginPass(rs.getString("login_pass"));
 				loginDTO.setUserName(rs.getString("user_name"));
