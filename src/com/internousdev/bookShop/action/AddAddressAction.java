@@ -6,12 +6,14 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class MyAccountAction extends ActionSupport implements SessionAware{
+/**
+ * 配送先入力フォームを表示
+ * @author yuu
+ *
+ */
+public class AddAddressAction extends ActionSupport implements SessionAware{
 
-
-	//ログイン情報を格納
-	private Map<String,Object> session;
-
+	private Map<String,Object>session;
 
 	public String execute(){
 		String result=SUCCESS;
@@ -30,11 +32,7 @@ public class MyAccountAction extends ActionSupport implements SessionAware{
 		return session;
 	}
 
-
-
-
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
 }

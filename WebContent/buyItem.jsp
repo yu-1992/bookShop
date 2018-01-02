@@ -10,15 +10,6 @@
 <title>BuyItem画面</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<style>
-img{
-width: 100px;
-hight: 150px;
-}
-.left{
-float:left
-}
-</style>
 </head>
 <header class="header">
 	<%@ include file="header.jsp" %>
@@ -30,50 +21,36 @@ float:left
 <div class="item-info">
 	<s:form action="BuyItemAction">
 
-		<table>
-		<s:iterator value="buyItemDTOList">
 
-			<tr>
-				<td>
-				<!-- ID -->
-			<td><input type="hidden" name="ids" value="<s:property value="id"/>"/></td>
-				<td>
-			</tr>
-			<tr>
-				<td><span>商品名</span></td>
-				<td><s:property value="itemName"/><br>
-					<input type="hidden" name="itemNames" value="<s:property value="itemName"/>" />
-				</td>
-			</tr>
+		<s:iterator value="buyItemDTOList">
+		<div class="item-block">
+			<!-- ID -->
+			<input type="hidden" name="ids" value="<s:property value="id"/>"/>
+
 			<!-- 表紙画像-->
-			<tr>
-				<td><img src='<s:property value="itemImg"/>' alt="表紙画像"><input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/></td>
-			</tr>
-				<td>
-					<span>著者</span>
-				</td>
-				<td>
+			<div class="item-img">
+			<img src='<s:property value="itemImg"/>' alt="表紙画像"><input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/>
+			</div>
+
+			<!-- 商品名 -->
+			<div class="item-name">
+				<s:property value="itemName"/><br>
+					<input type="hidden" name="itemNames" value="<s:property value="itemName"/>" />
+			</div>
+
+				<div class="author-name">
+				著者:&nbsp;
 					<s:property value="itemAuthor"/><br>
 					<input type="hidden" name="itemAuthors" value="<s:property value="itemAuthor"/>" />
-				</td>
-			<tr>
-				<td>
-					<span>値段</span>
-				</td>
-				<td>
+				</div>
+
+				<div class="item-price">
+				値段:&nbsp;
 					<s:property value="itemPrice"/><span>円</span>
 					<input type="hidden" name="itemPrices" value="<s:property value="itemPrice"/>"/>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-
-					<span>購入個数</span>
-				</td>
-				<td>
-
-
+				</div>
+				<div class="item-count">
+				購入個数
 					<select name="counts" >
 						<option value="0" selected="selected">0</option>
 						<option value="1">1</option>
@@ -82,51 +59,47 @@ float:left
 						<option value="4">4</option>
 						<option value="5">5</option>
 					</select>
+				</div>
 
-				</td>
-			</tr>
-
+</div>
 			</s:iterator>
-
-						<tr>
-				<td>
-					<span>支払い方法</span>
-				</td>
-				<td>
+			<br>
+			<div class="pay-form">
+			<div class="pay">
+					支払い方法
 					<input type="radio" name="pay" value="1" checked="checked">現金払い
 					<input type="radio" name="pay" value="2">クレジットカード
-				</td>
-			</tr>
-			<tr>
-				<td>
+			<div class="submit">
 					<s:submit value="購入"/>
-				</td>
-			</tr>
-		</table>
+			</div>
+			</div>
+			</div>
 		</s:form>
-
+		</div>
+		<div class="form">
+			<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
+				<p>前画面に戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
 		</div>
 </div>
 
 
 		<div class="sidemenu">
 
-		<table>
-			<tr>
-			<th>著者</th>
-			</tr>
+	<div class="author-list">
+	<div class="author-menu">
+		著者<br>
+	</div>
 		<s:iterator value="authorItemDTOList">
-			<tr>
-				<td><a href='AuthorItemAction?authorName=<s:property value="authorName"/>'><s:property value="authorName"/></a></td>
+			<div class="author-link">
+			<a href='AuthorItemAction?authorName=<s:property value="authorName"/>'><s:property value="authorName"/></a>
+			</div>
 			</s:iterator>
-			</table>
 		</div>
 			</div>
 			</div>
-	<div class="text-link">
-	<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
-				<p>前画面に戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
 			</div>
+
+
 
 </body>
 </html>

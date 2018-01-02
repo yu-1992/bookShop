@@ -85,6 +85,5 @@
 		<result name="error">login.jsp</result>
 	</action>
 
-
 	</package>
 </struts>

@@ -11,8 +11,7 @@
 
 <style>
 img{
-width: 100px;
-hight: 150px;
+height: 201px;
 }
 </style>
 </head>
@@ -20,11 +19,10 @@ hight: 150px;
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div id="main">
-		<div id="top">
+	<div class="wrapper">
+		<div class="mypage">
 			<p>MyPage</p>
 		</div>
-	</div>
 	<s:if test="myPageList==null">
 		<h3>ご購入情報はありません。</h3>
 	</s:if>
@@ -46,7 +44,7 @@ hight: 150px;
 				<td><s:property value="itemAuthor"/></td>
 				<td><img src=<s:property value="itemImg" /> alt="表紙画像">
 				<td><s:property value="totalCount"/></td>
-				<td><s:property value="totalPrice"/></td>
+				<td><s:property value="totalPrice"/>円</td>
 				<td><s:property value="payment"/></td>
 				<td><s:property value="insert_date"/></td>
 			</tr>
@@ -60,9 +58,11 @@ hight: 150px;
 		<s:if test="message!=null">
 			<h3><s:property value="message"/></h3>
 		</s:if>
-		<div id="text-right">
+
+			<div class="text-link">
 			<p>Homeへ戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
 			<p>ログアウトする場合は<a href='<s:url action="LogoutAction"/>'>こちら</a></p>
 		</div>
+	</div>
 </body>
 </html>

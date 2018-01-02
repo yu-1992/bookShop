@@ -13,16 +13,16 @@
 <header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div id="main">
-		<div id="top">
-			<p>BuyItemComplete</p>
-		</div>
-		<div>
-			<p>購入手続きが完了致しました。</p>
-		</div>
+<div class="wrapper">
+ <div class="buyitem-complete">
+	<div class="buy-complete">
+		購入手続きが完了致しました。
+	</div>
+	<div class="buy-complete-link">
 			<a href='<s:url action="MyPageAction"/>'>マイページ</a><span>から購入履歴の確認が可能です。</span>
 			<p>Homeへ戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
 	</div>
-
+	</div>
+	</div>
 </body>
 </html>

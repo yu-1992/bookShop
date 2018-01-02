@@ -8,71 +8,69 @@
 <title>AuthorItem画面</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<style>
-img{
-width: 100px;
-hight: 150px;
-}
-</style>
 </head>
 <body>
 	<header class="header">
 	<%@ include file="header.jsp" %>
 </header>
-	<div id="main">
-		<p>AuthorItem</p>
-	</div>
-
+	<div class="wrapper">
+	<div class="item-info">
 		<table>
 		<tr>
 		<td><span>著者情報</span></td>
 		</tr>
 
-		<tr><td><s:property value="authorItemDTOList.get(0).authorName"/></td></tr>
-		<tr><td><s:property value="authorItemDTOList.get(0).authorYear"/></td></tr>
-		<tr><td><s:property value="authorItemDTOList.get(0).authorBiography"/></td></tr>
+		<tr><td>
+		<div class="author-item-info author-item-name">
+		<s:property value="authorItemDTOList.get(0).authorName"/>
+		</div>
+		</td></tr>
+
+		<tr><td>
+		<div class="author-item-info author-item-year">
+		<s:property value="authorItemDTOList.get(0).authorYear"/>
+		</div>
+		</td></tr>
+
+		<tr><td>
+		<div class="author-item-info author-item-biography">
+		<s:property value="authorItemDTOList.get(0).authorBiography"/>
+		</div>
+		</td></tr>
+		</table>
 
 	<s:form action="BuyItemAction">
 
 		<s:iterator value="authorItemDTOList">
-
-			<tr>
+		<div class="item-block">
 			<!-- ID -->
-			<td><input type="hidden" name="ids" value="<s:property value="id"/>"/></td>
-				<td>
-					<span>商品名</span>
-				</td>
-				<td>
-					<s:property value="itemName"/><br>
-					<input type="hidden" name="itemNames" value="<s:property value="itemName"/>" />
-				</td>
-			</tr>
+			<input type="hidden" name="ids" value="<s:property value="id"/>"/>
+
 			<!-- 表紙画像-->
-			<tr>
-				<td><img src='<s:property value="itemImg"/>' alt="表紙画像">
-					<input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/>
-			</tr>
-				<td>
-					<span>著者</span>
-				</td>
-				<td>
+				<div class="item-img">
+				<img src='<s:property value="itemImg"/>' alt="表紙画像">
+				<input type="hidden" name="itemImgs" value="<s:property value="itemImg"/>"/>
+				</div>
+
+			<!-- 商品名 -->
+				<div class="item-name">
+				<s:property value="itemName"/><br>
+					<input type="hidden" name="itemNames" value="<s:property value="itemName"/>" />
+				</div>
+
+				<div class="author-name">
+				著者:&nbsp;
 					<s:property value="authorName"/><br>
 					<input type="hidden" name="itemAuthors" value="<s:property value="authorName"/>" />
-				</td>
-			<tr>
-				<td>
-					<span>値段</span>
-				</td>
-				<td>
+				</div>
+
+				<div class="item-price">
+				値段:&nbsp;
 					<s:property value="itemPrice"/><span>円</span>
 					<input type="hidden" name="itemPrices" value="<s:property value="itemPrice"/>"/>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<span>購入個数</span>
-				</td>
-				<td>
+				</div>
+				<div class="item-count">
+					購入個数
 					<select name="counts" >
 						<option value="0" selected="selected">0</option>
 						<option value="1">1</option>
@@ -81,30 +79,28 @@ hight: 150px;
 						<option value="4">4</option>
 						<option value="5">5</option>
 					</select>
-
-				</td>
-			</tr>
-
+				</div>
+		</div>
 			</s:iterator>
-						<tr>
-				<td>
-					<span>支払い方法</span>
-				</td>
-				<td>
+			<br>
+			<div class="pay-form">
+			<div class="pay">
+					支払い方法
 					<input type="radio" name="pay" value="1" checked="checked">現金払い
 					<input type="radio" name="pay" value="2">クレジットカード
-				</td>
-			</tr>
-			<tr>
-				<td>
+			<div class="submit">
 					<s:submit value="購入"/>
-				</td>
-			</tr>
+			</div>
+			</div>
+			</div>
 		</s:form>
-		</table>
+</div>
+		<div class="form">
+			<p>マイページは<a href='<s:url action="MyPageAction"/>'>こちら</a></p>
+			<p>前画面に戻る場合は<a href='<s:url action="HomeAction"/>'>こちら</a></p>
+		</div>
 
-
-
+</div>
 
 
 </body>

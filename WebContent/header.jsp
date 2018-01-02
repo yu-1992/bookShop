@@ -8,7 +8,7 @@
          <ul>
           <li class="nav-item account"><a href='<s:url action="MyAccountAction"/>'><i class="fa fa-key"></i>&nbsp;MY ACCOUNT</a></li>
 
-              <li class="nav-item cart"><a href='<s:url action="MyPageAction"/>'><i class="fa fa-shopping-cart"></i>&nbsp;SHOPPING CART</a></li>
+              <li class="nav-item mypage"><a href='<s:url action="MyPageAction"/>'><i class="fa fa-user-circle-o"></i>&nbsp;MY PAGE</a></li>
 
              <li class="nav-item logout"><a href='<s:url action="LogoutAction"/>'><i class="fa fa-sign-out"></i>&nbsp;LOGOUT</a></li>
 

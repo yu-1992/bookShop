@@ -110,35 +110,25 @@ ul{
 .button a:hover{
     border: 1px solid #999;
 }
-
-/* login.jsp -userCreate.jsp　*/
-.login{
-	text-align: center;
-	margin: 130px 0;
-}
-table {
-	margin:30px auto;
-		}
 .text-link a{
 	text-decoration: underline;
 }
-
 .login{
 	text-align: center;
     margin: 130px auto;
+}
+.login .login-form{
+	padding:60px 80px;
+	border:1px solid #999;
+	display: inline-block;
+	margin: 31px;
+	border-radius: 4px;
 }
 .login h4{
 	letter-spacing: 1px;
 }
 .confirm-table{
 	text-align: cener;
-}
-.login-form{
-	border:1px solid #999;
-	display: inline-block;
-	margin: 31px;
-	padding: 12px 78px;
-	border-radius: 4px;
 }
 .login-form input{
 	margin:5px;
@@ -200,18 +190,119 @@ border: 1px solid #999;
 .text-link {
 	text-align:center;
 }
-img{
-width: 120px;
-hight: 175px;
+.item-block{
+	display:inline-block;
+	width: 220px;
+	height: 330px;
+	padding-top:60px;
+	line-height:20px;
+	letter-spacing: 1px;
 }
-
+.item-img img{
+	width: 150px;
+	height: 240px;
+}
+.item-name{
+	font-size:1.5rem;
+	margin-bottom: 5px;
+}
+.pay{
+	padding-top:80px;
+	font-size:1.5rem;
+	text-align:center;
+}
+.pay-form{
+	text-align:center;
+}
+.pay{
+	padding-top:80px;
+	font-size:1.5rem;
+	display:inline-block;
+	margin: 10px auto;
+	border-bottom:1px solid#999;
+}
+.form{
+	text-align:center;
+}
+.form a{
+	text-decoration:underline
+}
+table {
+	margin:30px auto;
+		}
+.pay-confirm{
+	padding-top:80px;
+	font-size:1.5rem;
+	display:inline-block;
+	margin: 10px auto;
+}
+.item-confirm{
+	display:inline-block;
+	font-size:1.8rem;
+	letter-spacing:1px;
+	padding-top: 30px;
+	border-bottom: 1px solid #999;
+}
+.buyitem-complete{
+	padding-top:30px;
+}
+.buy-complete{
+	font-size:1.5rem;
+	letter-spacing: 0.5px;
+	display:inline-block;
+	border-bottom: 1px solid #999;
+}
+.buy-complete-link a{
+	text-decoration:underline
+}
+.buy-complete-link{
+	padding-top:30px;
+}
+.mypage p{
+	display:inline-block;
+	border-bottom:1px solid#999;
+}
+.item-info span{
+	font-size:1.5rem;
+	letter-spacing:0.5px;
+}
+.author-item-info{
+	font-size:1.3rem;
+	font-weight: bold;
+}
+.author-item-name{
+	padding-top:30px;
+}
+.author-item-biography{
+	padding-bottom:30px;
+	border-bottom:1px solid#999;
+}
 /* ----------------------------
 *	sidemenu
 *-------------------------- */
 
 .sidemenu{
+	display:block;
 	float: left;
-	width: 275px
+	width: 275px;
+	height: 900px;
+	display:block;
+	padding-top:40px;
+	line-height:20px;
+	letter-spacing: 1px;
+	padding-left:70px;
+}
+.author-link{
+	padding-top:10px;
+	font-size:1.2rem;
+}
+.author-link a{
+	text-decoration:underline;
+}
+.author-menu{
+	font-size:1.5rem;
+	font-weight: bold;
+	margin:10px;
 }
 
 /* ----------------------------
