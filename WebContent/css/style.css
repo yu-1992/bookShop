@@ -272,6 +272,9 @@ table {
 }
 .author-item-name{
 	padding-top:30px;
+	font-size:1.7rem;
+	padding-bottom:10px;
+	letter-spacing:1px;
 }
 .author-item-biography{
 	padding-bottom:30px;

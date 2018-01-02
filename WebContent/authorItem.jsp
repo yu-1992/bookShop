@@ -16,10 +16,6 @@
 	<div class="wrapper">
 	<div class="item-info">
 		<table>
-		<tr>
-		<td><span>著者情報</span></td>
-		</tr>
-
 		<tr><td>
 		<div class="author-item-info author-item-name">
 		<s:property value="authorItemDTOList.get(0).authorName"/>
